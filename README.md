@@ -18,7 +18,7 @@ Since most data will originate from the Clarity database, SQL queries will be us
 
 These queries will connect to the Clarity database and return base tables for each of the required extracts for the PDC. 
 
-The crucial part of phase 1 is the ALL_ENCOUNTERS.sql query. This will make a temp table ##all_enc, this is the main cohort for the PDC extract. All other queries use the ##all_enc table, therefore after ALL_ENCOUNTERS.sql is run the query needs to remain open in the SQL session in order to access the ##all_enc table. 
+The crucial part of phase 1 is the ALL_ENCOUNTERS.sql query. This will make a temp table ##all_enc, this is the main cohort for the PDC extract. All other queries use the ##all_enc table. Therefore, after ALL_ENCOUNTERS.sql is run, the query needs to remain open in the SQL session in order to access the ##all_enc table. 
 
 There is a visual representation of the phase 1 workflow in the repositiory. The workflow document has some key notes for each query. You can find it below:
 
