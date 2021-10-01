@@ -10,6 +10,7 @@ This process will be rolled out in a phased approach.
 
 The SQL queries are written for Microsoft SQL Server, there is a goal to write the queries for the other SQL platforms (MySQL, Big Query, etc) in the future.
 
+If you have an issue or question, please submit an [issue](https://github.com/Lab-for-Integrated-Decision-Support/pdc-extraction/issues): and we will investigate.
 
 ## The Phases
 
