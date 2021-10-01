@@ -6,91 +6,30 @@ DROP TABLE IF EXISTS #adt_visit_dt_set
 DROP TABLE IF EXISTS #adt_final_cohort
 DROP TABLE IF EXISTS ##all_enc
 
+-- Dates user wants full cohort to contain
 DECLARE @startdate DATETIME = '01/01/2011'
 		,@enddate DATETIME = '04/11/2021'
 
 DECLARE @ICU TABLE (
-	dpt_grp VARCHAR(50)
-	,dpt_id VARCHAR(25)
-	,opendate DATE
-	,closedate DATE
-	,displayName VARCHAR(150) NULL
+	dpt_grp VARCHAR(50) -- User defined, must include PERIOP
+	,dpt_id VARCHAR(25) -- EPIC Department IDs, found from helper queries
+	,opendate DATE -- date department opened (if department doesn't have a distinct open date, please enter in @startdate from above) 
+	,closedate DATE -- date department closed (if department doesn't have a distinct close date, please enter in @enddate from above)
+	,displayName VARCHAR(150) NULL -- This is used just for ease of reading the code, this field is user defined and not used within the query. This should be an identifying name for he user to easily parse and remeber which department this row is for.
 	)
 
+-- 
 INSERT INTO @ICU
 VALUES (
 	'PCICU'
-	,'101002006'
+	,'123456789'
 	,'2011-01-01'
 	,'2017-10-01'
 	,'4-2800'
 	)
 	,(
-	'PCICU'
-	,'101002024'
-	,'2011-01-01'
-	,'2021-04-11'
-	,'CH 6S'
-	)
-	,(
-	'PICU'
-	,'101002009'
-	,'2011-01-01'
-	,'2017-10-01'
-	,'4-1800'
-	)
-	,(
-	'PICU'
-	,'101002023'
-	,'2011-01-01'
-	,'2021-04-11'
-	,'CH 6N'
-	)
-	,(
 	'PERIOP'
-	,'101002032'
-	,'2011-01-01'
-	,'2021-04-11'
-	,'GCH OPERATING ROOM'
-	)
-	,(
-	'PERIOP'
-	,'101002025'
-	,'2011-01-01'
-	,'2021-04-11'
-	,'GCH PEDS CATH/EP LABS'
-	)
-	,(
-	'PERIOP'
-	,'101002027'
-	,'2011-01-01'
-	,'2021-04-11'
-	,'CHPS'
-	)
-	,(
-	'PERIOP'
-	,'101001532'
-	,'2011-01-01'
-	,'2021-04-11'
-	,'SMH OPERATING ROOM'
-	)
-	,(
-	'PERIOP'
-	,'101001039'
-	,'2011-01-01'
-	,'2021-04-11'
-	,'SDAU'
-	)
-	,(
-	'PERIOP'
-	,'101001038'
-	,'2011-01-01'
-	,'2021-04-11'
-	,'PACU'
-	)
-	,(
-	'PERIOP'
-	,'101002028'
+	,'987654321'
 	,'2011-01-01'
 	,'2021-04-11'
 	,'CHGI'
