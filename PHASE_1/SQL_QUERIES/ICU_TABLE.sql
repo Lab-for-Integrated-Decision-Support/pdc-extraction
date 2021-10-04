@@ -19,6 +19,9 @@ SELECT PAT_ID AS pid
 			THEN '1'
 		ELSE '0'
 		END AS icuMortality
+	,PAT_MRN_ID -- Needed for VPS
+	,PAT_LAST_NAME -- Needed for VPS
+	,PAT_FIRST_NAME -- Needed for VPS
 INTO #icu
 FROM ##all_enc
 
