@@ -38,6 +38,7 @@ SELECT enc.PAT_ID
 	,zc_mar_rslt.NAME AS MAR_ACTION
 	,mar.SIG
 	,zc_adm_rt.NAME AS ADMIN_ROUTE
+	,med.ROUTE AS MED_ROUTE
 	,zc_mar_rsn.NAME AS MAR_REASON
 	,mar.INFUSION_RATE
 	,zc_inf_unit.NAME AS MAR_INF_RATE_UNIT
