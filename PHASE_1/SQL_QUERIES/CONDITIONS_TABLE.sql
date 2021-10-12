@@ -58,15 +58,15 @@ SELECT MIN(enc.PAT_ID) as pid
 	,CSN as hid
 	,MIN(enc.BIRTH_DATE) as BIRTH_DATE
 	,START_DT as recorded
-	,MIN(DATEDIFF(DAY, enc.BIRTH_DATE, START_DT)) AS recorded_Anonomyzied
+	,MIN(DATEDIFF(DAY, enc.BIRTH_DATE, START_DT)) AS recorded_Anonymized
 	,MIN('ICD10') as nomenclature
 	,MIN(dia.CURRENT_ICD10_LIST) as code
 	,MIN(dia.DX_NAME) as codeText
 	,MIN(dia.SOURCE) as source
 	,MIN(START_DT) as onset
-	,MIN(DATEDIFF(DAY, enc.BIRTH_DATE, START_DT)) AS onset_Anonomyzied
+	,MIN(DATEDIFF(DAY, enc.BIRTH_DATE, START_DT)) AS onset_Anonymized
 	,MIN(END_DT) as abatement
-	,MIN(DATEDIFF(DAY, enc.BIRTH_DATE, END_DT)) AS abatement_Anonomyzied
+	,MIN(DATEDIFF(DAY, enc.BIRTH_DATE, END_DT)) AS abatement_Anonymized
 	,CASE WHEN END_DT IS NOT NULL THEN '1' ELSE '0' END as abatementBoolean
 	,MIN(dia.PRIMARY_YN) as isPrimary
 INTO #conditions
