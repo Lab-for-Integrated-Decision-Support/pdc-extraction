@@ -13,13 +13,13 @@ SELECT enc.PAT_ID AS pid
 	,COALESCE(lnc.LNC_FULL_NAM, comp.NAME) AS NAME
 	,enc.HOSP_ADMSN_TIME AS HOSP_ADMIT_DT
 	,ord_proc_2.SPECIMN_TAKEN_TIME AS sampleTime
-	,DATEDIFF(SECOND, enc.HOSP_ADMSN_TIME, ord_proc_2.SPECIMN_TAKEN_TIME) AS sampleTime_Anonomyzied
+	,DATEDIFF(SECOND, enc.HOSP_ADMSN_TIME, ord_proc_2.SPECIMN_TAKEN_TIME) AS sampleTime_Anonymized
 	,ord_res.RESULT_TIME AS resultTime
-	,DATEDIFF(SECOND, enc.HOSP_ADMSN_TIME, ord_res.RESULT_TIME) AS resultTime_Anonomyzied
+	,DATEDIFF(SECOND, enc.HOSP_ADMSN_TIME, ord_res.RESULT_TIME) AS resultTime_Anonymized
 	,ord_res.ORD_VALUE AS value
 	,comp.DFLT_UNITS AS units
 	,ord_proc.ORDER_TIME AS orderTime
-	,DATEDIFF(SECOND, enc.HOSP_ADMSN_TIME, ord_proc.ORDER_TIME) AS orderTime_Anonomyzied
+	,DATEDIFF(SECOND, enc.HOSP_ADMSN_TIME, ord_proc.ORDER_TIME) AS orderTime_Anonymized
 INTO #labs
 FROM ORDER_RESULTS ord_res
  LEFT JOIN Clarity..ORDER_PROC ord_proc ON ord_proc.ORDER_PROC_ID = ord_res.ORDER_PROC_ID
