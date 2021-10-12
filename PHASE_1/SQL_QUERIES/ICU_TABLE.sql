@@ -7,9 +7,9 @@ SELECT PAT_ID AS pid
 	,PAT_ENC_CSN_ID AS hid
 	,DEPT_GRP AS icu
 	,ICU_IN_DT AS icuAdmission
-	,DATEDIFF(SECOND, HOSP_ADMIT_DT, ICU_IN_DT) AS icuAdmission_Anonomyzied
+	,DATEDIFF(SECOND, HOSP_ADMIT_DT, ICU_IN_DT) AS icuAdmission_Anonymized
 	,ICU_OUT_DT AS icuDischarge
-	,DATEDIFF(SECOND, HOSP_ADMIT_DT, ICU_OUT_DT) AS icuDischarge_Anonomyzied
+	,DATEDIFF(SECOND, HOSP_ADMIT_DT, ICU_OUT_DT) AS icuDischarge_Anonymized
 	,DISCH_DISP AS icuDisposition
 	,CASE 
 		WHEN DISCH_DISP_C <> '20'
