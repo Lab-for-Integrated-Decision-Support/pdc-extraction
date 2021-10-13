@@ -17,10 +17,12 @@ VALUES (
 
 SELECT fs_meas.FSD_ID
 	,enc.PAT_ENC_CSN_ID
+	,pat.BIRTH_DATE
 	-- Flowsheet Measure
 	,fs_meas.LINE
 	,fs_meas.FLO_MEAS_ID
 	,fs_meas.RECORDED_TIME
+	,DATEDIFF_BIG(SECOND, BIRTH_DATE, RECORDED_TIME) AS RECORDED_TIME_Anonymized
 	,fs_meas.ENTRY_TIME
 	,fs_meas.MEAS_VALUE
 	,flo.UNITS
@@ -46,6 +48,7 @@ LEFT JOIN Clarity..ZC_FLO_DOC_SRC zc_doc_src ON fs_meas.DOCUMENTATION_SOURCE_C =
 LEFT JOIN Clarity..IP_FLO_GP_DATA flo ON fs_meas.FLO_MEAS_ID = flo.FLO_MEAS_ID
 LEFT JOIN Clarity..ZC_ROW_TYP zc_row_typ ON flo.ROW_TYP_C = zc_row_typ.ROW_TYP_C
 LEFT JOIN Clarity..ZC_VAL_TYPE zc_val_typ ON flo.VAL_TYPE_C = zc_val_typ.VAL_TYPE_C
+LEFT JOIN PATIENT pat ON enc.PAT_ID = pat.PAT_ID
 WHERE enc.PAT_ENC_CSN_ID IN (
 		SELECT DISTINCT PAT_ENC_CSN_ID
 		FROM ##all_enc
